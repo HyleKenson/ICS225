@@ -12,7 +12,7 @@
     </style>
     <script>
         function calculate() {
-            var radiusStr = document.getElementById("radius").value;
+            var radiusStr = document.getElementById("radius").value; // so regex can match a string
             var radius = +document.getElementById("radius").value;
             var regex = /^(?![0.]+$)\d+(\.\d{1,2})?$/gm // only postive integers and floats
             console.log("Radius: ", radius);

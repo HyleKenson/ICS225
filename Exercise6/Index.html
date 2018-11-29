@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<title>Exercise 6</title>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/mystyle.css">
+<script>
+        function getUserInfo(username, userid) {
+        var name = document.getElementById("username").value;
+        var id = document.getElementById("userid").value;
+        window.name = "Thank you " + name + "<br>Your user id is " + id;
+        };
+      </script>
+</head>
+<body>
+<div>
+  <form action="user.html" onsubmit="getUserInfo();">
+    Name: <input type="text" id="username" name="username" placeholder="Name..">
+    <br>
+    ID: <input type="text" id="userid" name="userid" placeholder="ID..">
+    <input id="btn" name="btn" type="submit" value="submit">
+</form>
+</div>
+</body>
+</html>

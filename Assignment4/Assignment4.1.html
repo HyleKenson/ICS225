@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment4.1</title>
+    <Script>
+        function fun1(stuff){
+            if(stuff == ""){
+                alert("No text entered");
+            }else{
+                alert(stuff);
+            }
+
+        }
+    </Script>
+    <style>
+        input[type=text], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" id="stuff" placeholder="text...">
+    <br>
+    <input type="submit" value="submit" onclick="fun1(document.getElementById('stuff').value);">
+</div>
+</body>
+</html> 

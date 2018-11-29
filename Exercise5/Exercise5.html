@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<title>Exercise 5</title>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/mystyle.css">
+<h1>Exercise 5</h1>
+</head>
+<body style="background-color:white;" id="page">
+<div>
+  <form action="/action_page.php">
+    <input type="text" name="color" id="colorname" placeholder="Background Color..">
+    <br>
+    <button type="button" onclick="myFunction()">Run</button>
+	<script>
+        function myFunction(){
+            var page = document.getElementById("page");
+            var color = document.getElementById("colorname").value;
+            page.style = "background-color:" + color;
+        }
+    </script>
+  </form>
+</div>
+</body>
+</html>
