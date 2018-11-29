@@ -8,14 +8,20 @@
     </style>
     <script>
         function calculate() {
+            var radiusStr = document.getElementById("radius").value;
             var radius = +document.getElementById("radius").value;
+            var regex = /^(?![0.]+$)\d+(\.\d{1,2})?$/gm // only postive integers and floats
+            console.log("Radius: ", radius);
             if(radius == ''){
                 alert("Nothing entered!")
-            } else{
-                var volume = 3.14 * radius * radius
+            } else if(radiusStr.match(regex)){
+                var radius = radius;
+                var volume = 3.14 * radius * radius ;
                 document.getElementById("volume").innerHTML = volume;
-                console.log("Radius: ", radius);
                 console.log("Volume: ", volume);
+            } else{
+                alert("Error in input value");
+                console.log("error: probably a negative input");
             }
         }
     </script>
