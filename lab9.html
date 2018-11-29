@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    p {
+        font-size: 16px;
+    }
+</head>
+<body>
+    <p id="timer"></p>
+    <br>
+    <input type="number" name="firstname" id="Minutes" placeholder="minutes...">
+    <button onclick="myFunction()">Countdown</button>
+    <script>
+    function myFunction() {
+        var time = +document.getElementById("Minutes").value;
+        var seconds = 0;
+        var minutes = 0;
+        document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+    }
+    </script>
+
+</body>
+</html>
