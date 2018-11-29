@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        p {
+            font-size: 32px;
+        }
+    </style>
+    <script>
+        // adds leading zeros, ex 01:02
+        function padZero(num) {
+            var size = 2;
+            var s = num +"";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
+        function startTimer(){
+            var minutes = +document.getElementById('Minutes').value;
+            var seconds = 0;
+            setInterval(function (){
+                    if(seconds <= 0){
+                        minutes --;
+                        seconds = 59;
+                    }
+                    seconds --;
+                //sets the text for the timer
+                document.getElementById("timer").innerHTML = padZero(minutes) + ":" + padZero(seconds);
+            }, 1000)
+        }
+    </script>
+</head>
+<body>
+    <p id="timer"></p>
+    <br>
+    <input type="number" id="Minutes" placeholder="minutes...">
+    <button onclick="startTimer()">Countdown</button>
+</body>
+</html>
