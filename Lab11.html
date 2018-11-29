@@ -22,8 +22,12 @@
                     hours++;
                 }
             }
+
             //sets the text for the timer
-            document.getElementById("time").innerHTML = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds);
+            var timeStr = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds)
+            $(document).ready(function(){
+                $("#time").text(timeStr);
+            });
         }, 1000)
     }
 </script>
