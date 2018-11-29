@@ -3,6 +3,8 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+    var seconds = 0, minutes = 0, hours = 0;
+
     function padZero(num) {
         var size = 2;
         var s = num +"";
@@ -11,7 +13,6 @@
     }
 
     function startTimer(){
-        var seconds = 0, minutes = 0, hours = 0;
         timer = setInterval(function (){
             seconds++;
             if (seconds >= 60) {
@@ -35,7 +36,7 @@
         clearInterval(timer);
     }
 
-    function clear(){
+    function clearTimer(){
         clearInterval(timer);
         $("#time").text("00:00:00");
     }
@@ -45,6 +46,6 @@
     <h1 id="time">00:00:00</h1>
     <button id="start" onclick="startTimer()">start</button>
     <button id="stop" onclick="stop()">stop</button>
-    <button id="clear" onclick="clear()">clear</button>
+    <button id="clear" onclick="clearTimer()">clear</button>
 </body>
 </html>
