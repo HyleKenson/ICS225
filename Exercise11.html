@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#textinput").keyup(function(){
+            $("h1").text(document.getElementById("textinput").value);
+            $("h2").text(document.getElementById("textinput").value);
+            $("h3").text(document.getElementById("textinput").value);
+            $("div").text(document.getElementById("textinput").value);
+            $("p").text(document.getElementById("textinput").value);
+    });
+});
+</script>
+</head>
+<body>
+    Input text:
+    <input type="text" id="textinput">
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <div></div>
+    <p></p>
+</body>
+</html>
