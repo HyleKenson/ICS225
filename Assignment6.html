@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #rectangle {
+        background: blue;
+        height: 100px;
+        width: 200px;
+        position: absolute;
+    }
+
+    #square {
+        background: red;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+    }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    var seconds = 0, minutes = 0, hours = 0;
+
+    function padZero(num) {
+        var size = 2;
+        var s = num +"";
+        while (s.length < size) s = "0" + s;
+        return s;
+    }
+
+    function startTimer(){
+        timer = setInterval(function (){
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes >= 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            // sets the text for the timer
+            var timeStr = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds)
+            $(document).ready(function(){
+                $("#time").text(timeStr);
+            });
+        }, 1000)
+        timer;
+    }
+
+    function stop(){
+        clearInterval(timer);
+    }
+
+    function clearTimer(){
+        clearInterval(timer);
+        $("#time").text("00:00:00");
+    }
+</script>
+</head>
+<body>
+    <h1 id="time">00:00:00</h1>
+    <button id="start" onclick="startTimer()">start</button>
+    <button id="stop" onclick="stop()">stop</button>
+    <button id="clear" onclick="clearTimer()">clear</button>
+</body>
+</html>
