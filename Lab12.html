@@ -12,22 +12,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+    var clicks = 0;
     $("#rectangle").click(function(){
-        var clicks = 2;
-        console.log(clicks);
-        if(clicks = 0){
+        if(clicks == 0){
             $("#rectangle").animate({"bottom":"0px"});
-            console.log(clicks);
-        } else if(clicks = 1){
+            clicks ++;         
+        } else if(clicks == 1){
             $("#rectangle").animate({"right":"0px"});
-            console.log(clicks);
-        } else if(clicks = 2){
+            clicks ++;
+        } else if(clicks == 2){
             $("#rectangle").animate({"top":"0px"});
-            console.log(clicks);
-        } else if(clicks = 3){
+            clicks ++;
+        } else if(clicks == 3){
             $("#rectangle").animate({"left":"0px"});
             clicks = 0;
-            console.log(clicks);
         }
     });
 });
