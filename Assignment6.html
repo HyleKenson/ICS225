@@ -20,7 +20,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     var seconds = 0, minutes = 0, hours = 0;
-
+    var clicks = 0;
     function padZero(num) {
         var size = 2;
         var s = num +"";
@@ -56,13 +56,37 @@
         clearInterval(timer);
         $("#time").text("00:00:00");
     }
+
+    function start(){
+        clicks = 0;
+        startTimer();
+        $("#rectangle").click(function(){
+            $("#rectangle").hide();
+            clicks++;
+            console.log("clicks " + clicks);
+            if(clicks == 2){
+                stop();
+            }
+        });
+
+        $("#square").click(function(){
+            $("#square").hide();
+            clicks++;
+            console.log("clicks " + clicks);
+            if(clicks == 2){
+                stop();
+            }
+        });
+    }
+
 </script>
 </head>
 <body>
-    test
     <h1 id="time">00:00:00</h1>
-    <button id="start" onclick="startTimer()">start</button>
+    <button id="start" onclick="start()">start</button>
     <button id="stop" onclick="stop()">stop</button>
     <button id="clear" onclick="clearTimer()">clear</button>
+    <div id="rectangle"></div>
+    <div id="square"></div>
 </body>
 </html>
