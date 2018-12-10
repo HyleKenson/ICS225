@@ -2,18 +2,20 @@
 <html>
 <head>
 <style>
-    #rectangle {
+    #rct1 {
         background: blue;
         height: 100px;
         width: 200px;
         position: absolute;
+        top: 40%;
     }
 
-    #square {
+    #sqr1 {
         background: red;
         height: 100px;
         width: 100px;
         position: absolute;
+        top: 10%;
     }
 
 </style>
@@ -57,11 +59,18 @@
         $("#time").text("00:00:00");
     }
 
+    function addShapes(){
+        var rct1 = '<div id="rct1"></div>';
+        var sqr1 = '<div id="sqr1"></div>';
+        $( ".shapes" ).append(rct1, sqr1);
+    }
+
     function start(){
         clicks = 0;
+        addShapes();
         startTimer();
-        $("#rectangle").click(function(){
-            $("#rectangle").hide();
+        $("#rct1").click(function(){
+            $("#rct1").hide();
             clicks++;
             console.log("clicks " + clicks);
             if(clicks == 2){
@@ -69,8 +78,8 @@
             }
         });
 
-        $("#square").click(function(){
-            $("#square").hide();
+        $("#sqr1").click(function(){
+            $("#sqr1").hide();
             clicks++;
             console.log("clicks " + clicks);
             if(clicks == 2){
@@ -86,7 +95,6 @@
     <button id="start" onclick="start()">start</button>
     <button id="stop" onclick="stop()">stop</button>
     <button id="clear" onclick="clearTimer()">clear</button>
-    <div id="rectangle"></div>
-    <div id="square"></div>
+    <div class="shapes"></div>
 </body>
 </html>
