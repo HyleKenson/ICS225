@@ -14,11 +14,12 @@
 $(document).ready(function(){
     var clicks = 0;
     $("#rectangle").click(function(){
+        console.log(clicks);
         if(clicks == 0){
-            $("#rectangle").animate({"bottom":"0px"});
+            $("#rectangle").animate({"top":"350px"});
             clicks ++;         
         } else if(clicks == 1){
-            $("#rectangle").animate({"right":"0px"});
+            $("#rectangle").animate({"left":"700px"});
             clicks ++;
         } else if(clicks == 2){
             $("#rectangle").animate({"top":"0px"});
