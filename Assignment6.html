@@ -2,6 +2,9 @@
 <html>
 <head>
 <style>
+    body {
+        background: rgb(226, 226, 226);
+    }
     #rct1 {
         background: blue;
         height: 100px;
@@ -154,11 +157,12 @@
         var par1 = '<div id="par1"></div>';
         var par2 = '<div id="par2"></div>';
         var shapesArray = [rct1, rct2, sqr1, sqr2, sqr3, tri1, tri2, tri3, par1, par2];
-        // var rndNumShapes = Math.floor((Math.random() * 10) + 1); //random number between 5 and 10 shapes
-        var rndNumShapes = 1;
+        var rndNumShapes = Math.floor((Math.random() * 10) + 1); //random number between 1 and 5 shapes
+        // var rndNumShapes = 1;
         console.log("Number of Shapes: " + rndNumShapes);
-        const shuffled = shapesArray.sort(() => .5 - Math.random()); // shuffle  
-        let selected = shuffled.slice(0,rndNumShapes) ; //get sub-array of first elements AFTER shuffle
+        const shuffled = shapesArray.sort(() => .5 - Math.random()); // shuffle
+        console.log("shuffled: " + shuffled)  
+        let selected = shuffled.slice(0, rndNumShapes) ; //get sub-array of first elements AFTER shuffle
         console.log("Shapes selected: " + selected);
         $(".shapes").append(selected);
         return rndNumShapes; // return number of shapes to know when to stop
@@ -174,10 +178,7 @@
                 $(element).hide();
                 clicks++;
                 console.log("clicks " + clicks);
-                if(numShapes == 1){
-                    numShapes ++;
-                }
-                if(clicks == numShapes - 1){
+                if(clicks == numShapes){
                     stop();
                     console.log("stopped");
                 }
