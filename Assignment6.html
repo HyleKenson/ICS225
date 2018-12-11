@@ -38,6 +38,15 @@
         left: 30%;
     }
 
+    #sqr2 {
+        background: black;
+        height: 75px;
+        width: 75px;
+        position: absolute;
+        top: 50%;
+        left: 15%;
+    }
+
     #tri1 {
         height: 0px;
         width: 0px;
@@ -47,6 +56,48 @@
         border-left: 25px solid transparent;
         border-right: 25px solid transparent;
         border-bottom: 50px solid orangered;
+    }
+
+    #tri2 {
+        height: 0px;
+        width: 0px;
+        position: absolute;
+        top: 30%;
+        left: 70%;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 50px solid royalblue;
+    }
+
+    #tri3 {
+        height: 0px;
+        width: 0px;
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 50px solid yellowgreen;
+    }
+
+    #par1 {
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: skew(20deg);
+        background: rgb(110, 83, 209);
+    }
+
+    #par2 {
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        top: 60%;
+        left: 80%;
+        transform: skew(20deg);
+        background: rgb(199, 115, 6);
     }
 
 </style>
@@ -92,34 +143,39 @@
 
     function addShapes(){
         var rct1 = '<div id="rct1"></div>';
-        var sqr1 = '<div id="sqr1"></div>';
         var rct2 = '<div id="rct2"></div>';
+        var sqr1 = '<div id="sqr1"></div>';
         var sqr2 = '<div id="sqr2"></div>';
+        var sqr3 = '<div id="sqr3"></div>';
         var tri1 = '<div id="tri1"></div>';
-        $( ".shapes" ).append(rct1, sqr1, rct2, sqr2, tri1);
+        var tri2 = '<div id="tri2"></div>';
+        var tri3 = '<div id="tri3"></div>';
+        var par1 = '<div id="par1"></div>';
+        var par2 = '<div id="par2"></div>';
+        var shapesArray = [rct1, rct2, sqr1, sqr2, sqr3, tri1, tri2, tri3, par1, par2];
+        var rndNumShapes = Math.floor(Math.random() * 11);
+        console.log("Number of Shapes: " + rndNumShapes);
+        const shuffled = shapesArray.sort(() => .5 - Math.random()); // shuffle  
+        let selected = shuffled.slice(0,rndNumShapes) ; //get sub-array of first elements AFTER shuffle
+        console.log("Shapes selected: " + selected);
+        $(".shapes").append(selected);
+        return rndNumShapes; // return number of shapes to know when to stop
     }
 
-
     function start(){
-        clicks = 0;
-        addShapes();
         startTimer();
-        $("#rct1").click(function(){
-            $("#rct1").hide();
-            clicks++;
-            console.log("clicks " + clicks);
-            if(clicks == 2){
-                stop();
-            }
-        });
-
-        $("#sqr1").click(function(){
-            $("#sqr1").hide();
-            clicks++;
-            console.log("clicks " + clicks);
-            if(clicks == 2){
-                stop();
-            }
+        var numShapes = addShapes();
+        clicks = 0;
+        var shapesIDArray = ["#rct1", "#rct2", "#sqr1", "#sqr2", "#sqr3", "#tri1", "#tri2", "#tri3", "#par1", "#par2"]
+        shapesIDArray.forEach(element => {
+            $(element).click(function(){
+                $(element).hide();
+                clicks++;
+                console.log("clicks " + clicks);
+                if(clicks == numShapes - 1){
+                    stop();
+                }
+            });
         });
     }
 
