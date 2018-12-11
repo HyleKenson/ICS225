@@ -8,6 +8,7 @@
         width: 200px;
         position: absolute;
         top: 70%;
+        left: 10%;
     }
 
     #sqr1 {
@@ -16,6 +17,36 @@
         width: 100px;
         position: absolute;
         top: 50%;
+        left: 50%;
+    }
+
+    #rct2 {
+        background: green;
+        height: 50px;
+        width: 100px;
+        position: absolute;
+        top: 70%;
+        left: 60%;
+    }
+
+    #sqr2 {
+        background: yellow;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+    }
+
+    #tri1 {
+        height: 0px;
+        width: 0px;
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 50px solid orangered;
     }
 
 </style>
@@ -62,8 +93,12 @@
     function addShapes(){
         var rct1 = '<div id="rct1"></div>';
         var sqr1 = '<div id="sqr1"></div>';
-        $( ".shapes" ).append(rct1, sqr1);
+        var rct2 = '<div id="rct2"></div>';
+        var sqr2 = '<div id="sqr2"></div>';
+        var tri1 = '<div id="tri1"></div>';
+        $( ".shapes" ).append(rct1, sqr1, rct2, sqr2, tri1);
     }
+
 
     function start(){
         clicks = 0;
