@@ -106,8 +106,6 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    var seconds = 0, minutes = 0, hours = 0;
-    var clicks = 0;
     function padZero(num) {
         var size = 2;
         var s = num +"";
@@ -115,23 +113,23 @@
         return s;
     }
 
-    function startTimer(){
+    function startTimer(milliseconds, seconds, minutes){
         timer = setInterval(function (){
-            seconds++;
-            if (seconds >= 60) {
-                seconds = 0;
-                minutes++;
-                if (minutes >= 60) {
-                    minutes = 0;
-                    hours++;
+            milliseconds++;
+            if (milliseconds >= 60) {
+                milliseconds = 0;
+                seconds++;
+                if (seconds >= 60) {
+                    seconds = 0;
+                    minutes++;
                 }
             }
             // sets the text for the timer
-            var timeStr = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds)
+            var timeStr = padZero(minutes) + ":" + padZero(seconds) + ":" + padZero(milliseconds)
             $(document).ready(function(){
                 $("#time").text(timeStr);
             });
-        }, 1000)
+        }, 10)
         timer;
     }
 
@@ -157,8 +155,7 @@
         var par1 = '<div id="par1"></div>';
         var par2 = '<div id="par2"></div>';
         var shapesArray = [rct1, rct2, sqr1, sqr2, sqr3, tri1, tri2, tri3, par1, par2];
-        //var rndNumShapes = Math.floor((Math.random() * 10) + 1); //random number between 1 and 5 shapes
-        var rndNumShapes = 10;
+        var rndNumShapes = Math.floor((Math.random() * 10) + 1); //random number between 1 and 5 shapes
         console.log("Number of Shapes: " + rndNumShapes);
         var shuffled = shapesArray.sort(() => Math.random()); // shuffle 
         var selected = shuffled.slice(0, rndNumShapes) ; //get sub-array of first elements AFTER shuffle
@@ -168,7 +165,7 @@
     }
 
     function start(){
-        startTimer();
+        startTimer(0, 0, 0);
         var numShapes = addShapes();
         clicks = 0;
         var shapesIDArray = ["#rct1", "#rct2", "#sqr1", "#sqr2", "#sqr3", "#tri1", "#tri2", "#tri3", "#par1", "#par2"]
